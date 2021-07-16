@@ -1,6 +1,6 @@
 @use './abstracts' as *;
-@use './home';
-@use './botoncomponent';
+@use './pages/home';
+@use './components/botoncomponent';
 
 .app{
     & a{

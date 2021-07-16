@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface KeywordState {
+export interface KeywordState {
     value: string
 }
 

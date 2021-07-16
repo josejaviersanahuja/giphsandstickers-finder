@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export type RatingValue = "g" | "pg" | "pg-13" | "r" 
 
-interface RatingState {
+export interface RatingState {
     value: RatingValue
 }
 

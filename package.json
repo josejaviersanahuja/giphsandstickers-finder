@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "sass": "npx sass --watch src/scss:src/css"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",

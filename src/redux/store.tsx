@@ -1,11 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 import keywordReducer from '../feature/keyword/keywordSlice'
 import ratingReducer from '../feature/rating/ratingSlice'
+import loadingGifsReducer from '../feature/loadingGifs/loadingGifsSlice'
+import pageReducer from '../feature/page/pageSlice'
+import loadingNextPageReducer from '../feature/loadingNextPage/loadingNextPageSlice'
 
 const store = configureStore({
     reducer: {
         keyword: keywordReducer,
-        rating: ratingReducer
+        rating: ratingReducer,
+        loadingGifs: loadingGifsReducer,
+        page: pageReducer,
+        loadingNextPage: loadingNextPageReducer
     }
 })
 
