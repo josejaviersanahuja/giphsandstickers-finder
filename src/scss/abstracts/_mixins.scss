@@ -1,0 +1,19 @@
+
+@use './var' as *;
+
+@mixin cleanBotonStyle {
+    isolation: isolate;
+    position:relative;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+@mixin linkButtonHover {
+    box-shadow: 2px 2px 0 0 $secondColor;
+}

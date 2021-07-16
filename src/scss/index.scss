@@ -1,0 +1,17 @@
+@use './abstracts' as *;
+@use './home';
+@use './botoncomponent';
+
+.app{
+    & a{
+        text-decoration: none;
+        color: $secondColor;
+        border-radius: 5px;
+        padding: 0.25em;
+        border: 1px solid $thirdColor;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            @include linkButtonHover;
+        }
+    }
+}
