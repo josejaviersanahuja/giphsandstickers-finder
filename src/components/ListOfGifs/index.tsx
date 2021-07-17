@@ -1,8 +1,13 @@
-/* import React from 'react'
+import React from 'react'
+import { Giph } from '../../feature/gifs/gifsApiSlice'
 import Gif from '../Gif'
-import './ListOfGifs.css'
+// import './ListOfGifs.css'
 
-export default function ListOfGifs ({gifs}) {
+interface ListOfGifsProps {
+  gifs : Giph[]
+}
+
+export default function ListOfGifs ( { gifs } : ListOfGifsProps) : React.ReactElement{
   return <div className='ListOfGifs'>
     {
       gifs.map(({id, title, url}) =>
@@ -15,5 +20,4 @@ export default function ListOfGifs ({gifs}) {
       )
     }
   </div>
-} */
-export default function a () {}
+}

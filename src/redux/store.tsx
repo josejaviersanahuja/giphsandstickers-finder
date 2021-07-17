@@ -1,17 +1,24 @@
 import { configureStore } from '@reduxjs/toolkit'
 import keywordReducer from '../feature/keyword/keywordSlice'
 import ratingReducer from '../feature/rating/ratingSlice'
-import loadingGifsReducer from '../feature/loadingGifs/loadingGifsSlice'
 import pageReducer from '../feature/page/pageSlice'
 import loadingNextPageReducer from '../feature/loadingNextPage/loadingNextPageSlice'
+import { gifsApiSlice } from '../feature/gifs/gifsApiSlice'
+import { trendsApiSlice } from '../feature/trends/trendsApiSlice'
 
 const store = configureStore({
     reducer: {
         keyword: keywordReducer,
         rating: ratingReducer,
-        loadingGifs: loadingGifsReducer,
         page: pageReducer,
-        loadingNextPage: loadingNextPageReducer
+        loadingNextPage: loadingNextPageReducer,
+        [gifsApiSlice.reducerPath]: gifsApiSlice.reducer,
+        [trendsApiSlice.reducerPath]: trendsApiSlice.reducer
+    },
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware()
+            .concat(gifsApiSlice.middleware)
+            .concat(trendsApiSlice.middleware)
     }
 })
 

@@ -45,9 +45,8 @@ export default function SearchForm() {
   }
 
  */
+// console.log(keyword);
 
-  console.log(keyword.value, rating.value);
-  
   return (
     <>
     <form onSubmit={handleSubmit}>

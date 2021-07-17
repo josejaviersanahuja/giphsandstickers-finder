@@ -1,12 +1,13 @@
-/* import React from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
+import { Giph } from '../../feature/gifs/gifsApiSlice'
 //import Fav from 'components/Fav'
 
-export default function Gif ({ title, id, url }) {
+export default function Gif ({ title, id, url } : Giph) {
   return (
     <div className="Gif">
       <div className="Gif-buttons">
-        {/* <Fav id={id}></Fav> /}
+        {/* <Fav id={id}></Fav> */}
       </div>
       <Link to={`/gif/${id}`} className='Gif-link'>
         <h4>{title}</h4>
@@ -15,5 +16,4 @@ export default function Gif ({ title, id, url }) {
     </div>
 
   )
-} */
-export default function Gif() {}
+}
