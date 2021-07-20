@@ -1,12 +1,13 @@
 import { useRef, useEffect } from 'react'
 import { setIsNearScreen } from '../feature/isNearScreen/isNearScreenSlice'
+import { incrementPages } from '../feature/page/pageSlice'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 /* 
 interface Props {
     
 }
  */
-export default function useIsNearScreen() {
+export default function useIsNearScreen(isSearchPage : boolean = false) {
     
     const isNearScreen = useAppSelector((state) => state.isNearScreen)
     const dispatch = useAppDispatch()
@@ -21,8 +22,13 @@ export default function useIsNearScreen() {
         const ele = entries[0]
         if(ele.isIntersecting && !isNearScreen){
             dispatch(setIsNearScreen(true))
-            observer.disconnect()
+            console.log('isnearscreen ahora es true');
+            !isSearchPage && observer.disconnect() // si estamos en la home, desconectamos
+            isSearchPage && dispatch(incrementPages(1))
     //        console.log('entro a setear el isnear screen a true');
+        } else {
+            console.log('isnearscreen ahora es false');
+            isSearchPage && dispatch(setIsNearScreen(false)) // si estamos en searchPage infinityscroll
         } 
     }
 // no lo dejé en este proyecto porque no soporta typescript pero la idea es estupenda

@@ -31,6 +31,14 @@ code {
   box-shadow: 2px 2px 0 0 white;
 }
 
+.search {
+  color: white;
+}
+
+/* 
+.home~a{
+    @include linkDefaultStyle;
+} */
 .boton {
   isolation: isolate;
   position: relative;

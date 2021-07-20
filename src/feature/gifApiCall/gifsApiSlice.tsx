@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { KeywordState } from '../keyword/keywordSlice'
 import { RatingState } from '../rating/ratingSlice'
 import {BASE_URL_GIPH, GIPHY_API_KEY} from '../apiSettings'
+import { PageState } from '../page/pageSlice'
 
 export interface Giph {
     id: string,
@@ -13,7 +14,7 @@ export interface queryParameters {
     keyword?: KeywordState,
     rating?: RatingState,
     limit?: number,
-    page?:number
+    page?:PageState
 }
 
 export const gifsApiSlice = createApi({
@@ -28,12 +29,12 @@ export const gifsApiSlice = createApi({
                     keyword = {value:"lion guard"},
                     rating = {value:"g"},
                     limit = 10,
-                    page=0
+                    page={value:0}
                 }) {
                     localStorage.setItem('lastKeyword', keyword.value)
-                    return `/gifs/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page * limit}&rating=${rating.value}&lang=en`
+                    return `/gifs/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page.value * limit}&rating=${rating.value}&lang=en`
                 }
-            })
+            }),
         }
     }
 })

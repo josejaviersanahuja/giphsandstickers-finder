@@ -2,10 +2,12 @@
 import getGifs from '../services/getGifs'
 import GifsContext from '../context/GifsContext'
  */
-
-import { Giph, queryParameters, useFetchListOfGifsQuery } from "../feature/gifs/gifsApiSlice";
+import { useEffect, useState } from "react";
+import { Giph, queryParameters, useFetchListOfGifsQuery } from "../feature/gifApiCall/gifsApiSlice";
+import { addGiphs, setGiphs } from "../feature/gifs/gifsSlice";
 import { KeywordState } from "../feature/keyword/keywordSlice";
 import { RatingState } from "../feature/rating/ratingSlice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 
 const initialQuery : queryParameters = {
@@ -15,7 +17,7 @@ const initialQuery : queryParameters = {
   rating: {
     value:"g"
   },  
-  page:0,
+  page:{value:0},
   limit:10
 }
 interface useGifsProps {
@@ -23,38 +25,27 @@ interface useGifsProps {
     rating? : RatingState
 }
 
-export function useGifs ({ keyword, rating =initialQuery.rating } : useGifsProps ) {
+export default function useGifs ({ keyword, rating =initialQuery.rating } : useGifsProps ) {
 
-  const keywordInCache = () : KeywordState | undefined => {
-    if (localStorage.getItem('lastKeyword')) {
-      let returnThis : KeywordState = {
-        value: localStorage.getItem('lastKeyword') || ""
-      }
-      return returnThis
-    } else {
-      return undefined
-    }
-  }
-
+  const page=useAppSelector((state) => state.page)
   const keywordToUse : KeywordState | undefined = keyword || keywordInCache() || initialQuery.keyword
-  const {data, isFetching} = useFetchListOfGifsQuery({keyword:keywordToUse, rating})
+  const {data, isFetching} = useFetchListOfGifsQuery({keyword:keywordToUse, rating, page})
+  const [gifs, setGifs] = useState<Giph[]>([])
+  
   const loading = isFetching
-  const fromRawGiphToPureGiph = () :Giph[] => {
-    if (isFetching) {
-      return []
+  const gifsTmp : Giph[] = fromRawGiphToPureGiph(data, isFetching)
+  
+  useEffect(() => {
+    if (page.value===0) {
+     // console.log('entro a setear los giphs ???', gifsTmp);
+     setGifs(gifsTmp)
     } else {
-      let rawGiph :Giph[] = data.data.map((e: { id: string; title: string; images: { original: {url:string}; }; }) => {
-        const id = e.id
-        const title = e.title
-        const url = e.images.original.url
-        return {id, title, url}
-      })
-      return rawGiph
+     // console.log('entro a añadir mas giphs???');
+      setGifs([...gifs].concat(gifsTmp))
     }
-  }
-  
-  const gifs : Giph[] = fromRawGiphToPureGiph()
-  
+   }, [page, isFetching])
+   
+
   /*const [loadingNextPage, setLoadingNextPage] = useState(false)
 
   const [page, setPage] = useState(INITIAL_PAGE)
@@ -88,6 +79,31 @@ export function useGifs ({ keyword, rating =initialQuery.rating } : useGifsProps
       })
   }, [keywordToUse, page, rating, setGifs])
  */
+  // console.log('useGifs', page, gifs);
+  return {loading, gifs/* , loadingNextPage,setPage */}
+}
 
-  return {loading,  gifs/* , loadingNextPage,setPage */}
+export const fromRawGiphToPureGiph = (data: any, isFetching: boolean) :Giph[] => {
+  if (isFetching) {
+    return []
+  } else {
+    let rawGiph :Giph[] = data.data.map((e: { id: string; title: string; images: { original: {url:string}; }; }) => {
+      const id = e.id
+      const title = e.title
+      const url = e.images.original.url
+      return {id, title, url}
+    })
+    return rawGiph
+  }
+}
+
+const keywordInCache = () : KeywordState | undefined => {
+  if (localStorage.getItem('lastKeyword')) {
+    let returnThis : KeywordState = {
+      value: localStorage.getItem('lastKeyword') || ""
+    }
+    return returnThis
+  } else {
+    return undefined
+  }
 }

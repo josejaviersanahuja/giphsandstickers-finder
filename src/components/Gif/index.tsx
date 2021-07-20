@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { Giph } from '../../feature/gifs/gifsApiSlice'
+import { Giph } from '../../feature/gifApiCall/gifsApiSlice'
 //import Fav from 'components/Fav'
 
 export default function Gif ({ title, id, url } : Giph) {
