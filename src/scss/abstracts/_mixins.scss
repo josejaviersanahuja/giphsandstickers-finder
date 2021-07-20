@@ -17,3 +17,63 @@
 @mixin linkButtonHover {
     box-shadow: 2px 2px 0 0 $secondColor;
 }
+
+@mixin linkDefaultStyle {
+        text-decoration: none;
+        color: $secondColor;
+        border-radius: 5px;
+        padding: 0.25em;
+        border: 1px solid $thirdColor;
+        @include smoothTransition;
+        &:hover {
+            @include linkButtonHover;
+        }
+}
+
+@mixin smoothTransition {
+    transition: all 0.5s ease-in-out;
+}
+
+@mixin brandStyle1 {
+    background-color: $brandcolor_1;
+    color: black;
+    &:visited{
+        color: black;
+    }
+}
+
+@mixin brandStyle2 {
+    background-color: $brandcolor_2;
+    color: black;
+    &:visited{
+        color: black;
+    }
+}
+@mixin brandStyle3 {
+    background-color: $brandcolor_3;
+    color: white;
+    &:visited{
+        color: white;
+    }
+}
+@mixin brandStyle4 {
+    background-color: $brandcolor_4;
+    color: white;
+    &:visited{
+        color: white;
+    }
+}
+@mixin brandStyle5 {
+    background-color: $brandcolor_5;
+    color: black;
+    &:visited{
+        color: black;
+    }
+}
+@mixin brandStyle6 {
+    background-color: $brandcolor_6;
+    color: white;
+    &:visited{
+        color: white;
+    }
+}

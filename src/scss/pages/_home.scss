@@ -3,3 +3,7 @@
 .home {
     color: $secondColor;
 }
+
+.home~a{
+    @include linkDefaultStyle;
+}

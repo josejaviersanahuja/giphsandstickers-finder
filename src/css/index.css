@@ -19,6 +19,18 @@ code {
   color: white;
 }
 
+.home ~ a {
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 0.25em;
+  border: 1px solid darkgreen;
+  transition: all 0.5s ease-in-out;
+}
+.home ~ a:hover {
+  box-shadow: 2px 2px 0 0 white;
+}
+
 .boton {
   isolation: isolate;
   position: relative;
@@ -88,7 +100,89 @@ code {
     transform: scale(1.75) translateY(-20px);
   }
 }
-.app a {
+.trending {
+  /**/
+  border: 1px solid darkgreen;
+  border-radius: 5px;
+  margin: 1rem 0;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  min-height: auto;
+}
+.trending__title {
+  /**/
+  margin: 0.5rem;
+}
+.trending__list {
+  /**/
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.trending__list a {
+  text-decoration: none;
+  margin: 0.2rem;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.trending__list a:hover {
+  box-shadow: 2px 2px 0 0 white;
+}
+.trending__list__i {
+  list-style: none;
+  padding: 0.2rem;
+  font-weight: 700;
+}
+
+.trending__list > a:nth-child(6n+1) {
+  background-color: #00ff99;
+  color: black;
+}
+.trending__list > a:nth-child(6n+1):visited {
+  color: black;
+}
+
+.trending__list > a:nth-child(6n+2) {
+  background-color: #00ccff;
+  color: black;
+}
+.trending__list > a:nth-child(6n+2):visited {
+  color: black;
+}
+
+.trending__list > a:nth-child(6n+3) {
+  background-color: #9933ff;
+  color: white;
+}
+.trending__list > a:nth-child(6n+3):visited {
+  color: white;
+}
+
+.trending__list > a:nth-child(6n+4) {
+  background-color: tomato;
+  color: white;
+}
+.trending__list > a:nth-child(6n+4):visited {
+  color: white;
+}
+
+.trending__list > a:nth-child(6n+5) {
+  background-color: #fff35c;
+  color: black;
+}
+.trending__list > a:nth-child(6n+5):visited {
+  color: black;
+}
+
+.trending__list > a:nth-child(6n+6) {
+  background-color: #8429de;
+  color: white;
+}
+.trending__list > a:nth-child(6n+6):visited {
+  color: white;
+}
+
+header a {
   text-decoration: none;
   color: white;
   border-radius: 5px;
@@ -96,8 +190,133 @@ code {
   border: 1px solid darkgreen;
   transition: all 0.5s ease-in-out;
 }
-.app a:hover {
+header a:hover {
   box-shadow: 2px 2px 0 0 white;
+}
+
+.listOfGifs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 0.2rem;
+  place-items: center;
+  min-height: 110vh;
+}
+
+.Gif__link {
+  text-decoration: none;
+  color: white;
+}
+
+.Gif:nth-child(6n+1):hover {
+  background-color: #00ff99;
+  color: black;
+}
+.Gif:nth-child(6n+1):hover:visited {
+  color: black;
+}
+.Gif:nth-child(6n+1):hover .Gif__link {
+  text-decoration: none;
+  background-color: #00ff99;
+  color: black;
+}
+.Gif:nth-child(6n+1):hover .Gif__link:visited {
+  color: black;
+}
+
+.Gif:nth-child(6n+2):hover {
+  background-color: #00ccff;
+  color: black;
+}
+.Gif:nth-child(6n+2):hover:visited {
+  color: black;
+}
+.Gif:nth-child(6n+2):hover .Gif__link {
+  text-decoration: none;
+  background-color: #00ccff;
+  color: black;
+}
+.Gif:nth-child(6n+2):hover .Gif__link:visited {
+  color: black;
+}
+
+.Gif:nth-child(6n+3):hover {
+  background-color: #9933ff;
+  color: white;
+}
+.Gif:nth-child(6n+3):hover:visited {
+  color: white;
+}
+.Gif:nth-child(6n+3):hover .Gif__link {
+  text-decoration: none;
+  background-color: #9933ff;
+  color: white;
+}
+.Gif:nth-child(6n+3):hover .Gif__link:visited {
+  color: white;
+}
+
+.Gif:nth-child(6n+4):hover {
+  background-color: tomato;
+  color: white;
+}
+.Gif:nth-child(6n+4):hover:visited {
+  color: white;
+}
+.Gif:nth-child(6n+4):hover .Gif__link {
+  text-decoration: none;
+  background-color: tomato;
+  color: white;
+}
+.Gif:nth-child(6n+4):hover .Gif__link:visited {
+  color: white;
+}
+
+.Gif:nth-child(6n+5):hover {
+  background-color: #fff35c;
+  color: black;
+}
+.Gif:nth-child(6n+5):hover:visited {
+  color: black;
+}
+.Gif:nth-child(6n+5):hover .Gif__link {
+  text-decoration: none;
+  background-color: #fff35c;
+  color: black;
+}
+.Gif:nth-child(6n+5):hover .Gif__link:visited {
+  color: black;
+}
+
+.Gif:nth-child(6n+6):hover {
+  background-color: #8429de;
+  color: white;
+}
+.Gif:nth-child(6n+6):hover:visited {
+  color: white;
+}
+.Gif:nth-child(6n+6):hover .Gif__link {
+  text-decoration: none;
+  background-color: #8429de;
+  color: white;
+}
+.Gif:nth-child(6n+6):hover .Gif__link:visited {
+  color: white;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: 0.25em;
+  border: 1px solid darkgreen;
+  transition: all 0.5s ease-in-out;
+}
+.logo:hover {
+  box-shadow: 2px 2px 0 0 white;
+}
+
+img {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

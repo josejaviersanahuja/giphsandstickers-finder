@@ -15,7 +15,7 @@ export const trendsApiSlice = createApi({
         return {
             fetchTrendingGifs : builders.query<TrendingResponse, {}> ({
                 query({}){
-                    console.log(BASE_URL_GIPH,`/trending/searches?api_key=${GIPHY_API_KEY}`);
+                    // console.log(BASE_URL_GIPH,`/trending/searches?api_key=${GIPHY_API_KEY}`);
                     
                     return `/trending/searches?api_key=${GIPHY_API_KEY}`
                 }

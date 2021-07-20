@@ -32,19 +32,6 @@ export default function SearchForm() {
       dispatch(setRating(evnt.target.value))
   }
   
-/*   const onSubmit = ({ keyword }) => {
-    if (keyword !== '') {
-      // navegar a otra ruta
-      pushLocation(`/search/${keyword}/${rating}`)
-    }
-  }
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    onSubmit({ keyword })
-  }
-
- */
 // console.log(keyword);
 
   return (

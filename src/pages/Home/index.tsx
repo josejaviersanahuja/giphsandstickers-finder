@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import SearchForm from "../../components/SearchForm";
 import ListOfGifs from "../../components/ListOfGifs"
 import { useGifs } from "../../hooks/useGifs";
-import TrendingSearches from "../../components/TrendingSearches/TrendingSearches";
+import TrendingSearches from "../../components/TrendingSearches";
 import Spinner from "../../components/Spinner";
 
 

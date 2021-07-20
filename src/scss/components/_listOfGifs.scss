@@ -1,0 +1,70 @@
+@use '../abstracts/' as *;
+
+.listOfGifs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap:0.2rem;
+    place-items: center;
+    min-height: 110vh;
+}
+
+.Gif__link {
+    text-decoration: none;
+    color: white;
+}
+
+.Gif:nth-child(6n+1) {
+    &:hover{
+        @include brandStyle1;
+        & .Gif__link{
+            text-decoration: none;
+            @include brandStyle1;
+        }
+    }
+}
+
+.Gif:nth-child(6n+2) {
+    &:hover{
+        @include brandStyle2;
+        & .Gif__link{
+            text-decoration: none;
+            @include brandStyle2;
+        }
+    }
+}
+.Gif:nth-child(6n+3) {
+    &:hover{
+        @include brandStyle3;
+        & .Gif__link{
+            text-decoration: none;
+            @include brandStyle3;
+        }
+    }
+}
+.Gif:nth-child(6n+4) {
+    &:hover{
+        @include brandStyle4;
+        & .Gif__link{
+            text-decoration: none;
+            @include brandStyle4;
+        }
+    }
+}
+.Gif:nth-child(6n+5) {
+    &:hover{
+        @include brandStyle5;
+        & .Gif__link{
+            text-decoration: none;
+            @include brandStyle5;
+        }
+    }
+}
+.Gif:nth-child(6n+6) {
+    &:hover{
+        @include brandStyle6;
+        & .Gif__link{
+            text-decoration: none;
+            @include brandStyle6;
+        }
+    }
+}

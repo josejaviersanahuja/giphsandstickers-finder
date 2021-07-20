@@ -10,7 +10,7 @@ export default function App(): ReactElement {
   return (
     <div className="app">
       <Header />
-      <Link to="/">LOGO</Link>
+      <Link className="logo" to="/">LOGO</Link>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/search/:keyword/:rating?" component={Home} />

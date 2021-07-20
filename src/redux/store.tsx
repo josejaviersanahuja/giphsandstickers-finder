@@ -5,6 +5,7 @@ import pageReducer from '../feature/page/pageSlice'
 import loadingNextPageReducer from '../feature/loadingNextPage/loadingNextPageSlice'
 import { gifsApiSlice } from '../feature/gifs/gifsApiSlice'
 import { trendsApiSlice } from '../feature/trends/trendsApiSlice'
+import isNearScreenReducer from '../feature/isNearScreen/isNearScreenSlice'
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         rating: ratingReducer,
         page: pageReducer,
         loadingNextPage: loadingNextPageReducer,
+        isNearScreen: isNearScreenReducer,
         [gifsApiSlice.reducerPath]: gifsApiSlice.reducer,
         [trendsApiSlice.reducerPath]: trendsApiSlice.reducer
     },

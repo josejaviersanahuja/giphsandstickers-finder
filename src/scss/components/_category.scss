@@ -1,0 +1,57 @@
+@use '../abstracts/' as *;
+
+.trending {
+    /**/
+    border: 1px solid $thirdColor;
+    border-radius: 5px;
+    margin: 1rem 0;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    min-height: auto;
+    &__title{
+        /**/
+        margin: 0.5rem;
+    }
+    &__list{
+        /**/
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+        & a{
+            text-decoration: none;
+            margin: 0.2rem;
+            border-radius: 5px;
+            @include smoothTransition;
+            &:hover{
+                @include linkButtonHover;
+            }
+        }
+        &__i{
+            list-style: none;  
+
+            padding: 0.2rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.trending__list>a:nth-child(6n+1){
+   @include brandStyle1;
+}
+
+.trending__list>a:nth-child(6n+2){
+    @include brandStyle2;
+}
+.trending__list>a:nth-child(6n+3){
+    @include brandStyle3;
+}
+.trending__list>a:nth-child(6n+4){
+    @include brandStyle4;
+}
+.trending__list>a:nth-child(6n+5){
+    @include brandStyle5;
+}
+.trending__list>a:nth-child(6n+6){
+    @include brandStyle6;
+}
+

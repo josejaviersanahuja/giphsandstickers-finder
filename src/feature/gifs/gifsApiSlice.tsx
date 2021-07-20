@@ -39,7 +39,3 @@ export const gifsApiSlice = createApi({
 })
 
 export const { useFetchListOfGifsQuery } = gifsApiSlice
-
-// https://api.giphy.com/v1/gifs/search?api_key=YSxXTCo847DYT6kYKbR9eKACXVsDqIkm&q=lion guard&limit=10&offset=0&rating=g&lang=en
-// https://api.giphy.com/v1/gifs/search?api_key=YSxXTCo847DYT6kYKbR9eKACXVsDqIkm&q=lion%20guard&limit=10&offset=0&rating=g&lang=en
-//                         /gifs/search?api_key=YSxXTCo847DYT6kYKbR9eKACXVsDqIkm&q=lion guard&limit=0&offset=0&rating=g&lang=en

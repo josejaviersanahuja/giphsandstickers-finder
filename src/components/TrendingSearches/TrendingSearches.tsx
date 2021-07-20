@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useFetchTrendingGifsQuery } from '../../feature/trends/trendsApiSlice'
-/* 
-import Category from 'components/Category'
- */
+import Category from '../Category'
+import Spinner from '../Spinner'
+
 export default function TrendingSearches () {
 
     const { data , isFetching } = useFetchTrendingGifsQuery({})
     const trends : string[] = data === undefined ? [] : data.data
   
-  return <div>Trending</div> 
+    if (isFetching){ return <Spinner/> }
+  return <Category options={trends}/>
 }
-/* <Category name='Tendencias' options={trends} /> */
