@@ -14,7 +14,7 @@ const pageSlice = createSlice({
     reducers:{
         incrementPages (state, action: PayloadAction<number>) {
             state.value += action.payload
-            console.log('aumento la pagina');
+          //  console.log('aumento la pagina');
             
         },
         resetPageState (state) {

@@ -19,7 +19,7 @@ export default function index(): ReactElement {
                 ? <><Spinner/><ListOfGifs gifs={[]}/></>
                 : <ListOfGifs gifs={gifs}/>
             }
-            <div ref={elementObservar}></div>
+            <div ref={elementObservar}>x</div>
         </div>
     )
 }

@@ -4,10 +4,9 @@ import GifsContext from '../context/GifsContext'
  */
 import { useEffect, useState } from "react";
 import { Giph, queryParameters, useFetchListOfGifsQuery } from "../feature/gifApiCall/gifsApiSlice";
-import { addGiphs, setGiphs } from "../feature/gifs/gifsSlice";
 import { KeywordState } from "../feature/keyword/keywordSlice";
 import { RatingState } from "../feature/rating/ratingSlice";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { useAppSelector } from "../redux/hooks";
 
 
 const initialQuery : queryParameters = {
@@ -32,7 +31,7 @@ export default function useGifs ({ keyword, rating =initialQuery.rating } : useG
   const {data, isFetching} = useFetchListOfGifsQuery({keyword:keywordToUse, rating, page})
   const [gifs, setGifs] = useState<Giph[]>([])
   
-  const loading = isFetching
+  const loading = gifs.length === 0 ? isFetching : false // esto es la caña aunque no lo sepas, se mejor el infinity scroll con esta ternaria
   const gifsTmp : Giph[] = fromRawGiphToPureGiph(data, isFetching)
   
   useEffect(() => {
@@ -45,42 +44,7 @@ export default function useGifs ({ keyword, rating =initialQuery.rating } : useG
     }
    }, [page, isFetching])
    
-
-  /*const [loadingNextPage, setLoadingNextPage] = useState(false)
-
-  const [page, setPage] = useState(INITIAL_PAGE)
- 
- */
-  // recuperamos la keyword del localStorage
-  // const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
-
- /*  useEffect(function () {
-    setLoading(true)
-
-    getGifs({ keyword: keywordToUse, rating })
-      .then(gifs => {
-        setGifs(gifs)
-        setLoading(false)
-        // guardamos la keyword en el localStorage
-        localStorage.setItem('lastKeyword', keyword)
-      })
-  }, [keyword, keywordToUse, rating, setGifs])
- */
-
-/*   useEffect(function () {
-    if (page === INITIAL_PAGE) return
-
-    setLoadingNextPage(true)
-
-    getGifs({ keyword: keywordToUse, page, rating })
-      .then(nextGifs => {
-        setGifs(prevGifs => prevGifs.concat(nextGifs))
-        setLoadingNextPage(false)
-      })
-  }, [keywordToUse, page, rating, setGifs])
- */
-  // console.log('useGifs', page, gifs);
-  return {loading, gifs/* , loadingNextPage,setPage */}
+  return {loading, gifs}
 }
 
 export const fromRawGiphToPureGiph = (data: any, isFetching: boolean) :Giph[] => {
