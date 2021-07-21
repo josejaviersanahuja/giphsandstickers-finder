@@ -48,7 +48,7 @@ export default function useIsNearScreen(isSearchPage : boolean = false) {
         }
     }) */
     const observer = new IntersectionObserver(callback, {
-        rootMargin:'100px' // que cargue cuando este a 100 px del viewport
+        rootMargin:'250px' // que cargue cuando este a 100 px del viewport
     })
 
     if(element) { 
