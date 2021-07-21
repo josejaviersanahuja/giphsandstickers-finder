@@ -2,8 +2,26 @@
 @use './pages/' as *;
 @use './components/' as *;
 
+.wrapper__logo{
+    min-width:300px;
+    min-height:300px;
+    display:flex;
+    position: relative;
+    margin: 1rem ; 
+}
 .logo {
     @include linkDefaultStyle;
+    margin: auto;
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-image: url('../logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 10%;
+    max-width: 400px;
 }
 
 img {

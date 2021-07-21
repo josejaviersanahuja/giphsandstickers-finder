@@ -4,19 +4,21 @@
     color: $secondColor;
     display: flex;
     flex-direction: column;
-    
     &__title {
         margin: auto;
         text-align: center;
+        
     }
     &__img {
         margin:auto;
+        background: linear-gradient(to right, $brandcolor_1, $brandcolor_2, $brandcolor_3, $brandcolor_4, $brandcolor_5, $brandcolor_6);
         & .Gif{
             width: 100vw;
             &__link {
                 display:flex;
                 flex-direction: column;
                 width:100%;
+                position: relative;
                 & img, h4{
                     margin:auto;
                 }

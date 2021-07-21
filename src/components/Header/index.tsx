@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link} from 'react-router-dom'
+import { Link, useLocation} from 'react-router-dom'
 import { showGifs, showStickers } from '../../feature/gifORstickers/gifORstickerSlice'
 import { useAppDispatch } from '../../redux/hooks'
 import ButtonComponent from '../Boton'
@@ -9,7 +9,8 @@ import ButtonComponent from '../Boton'
  // import './Header.css'
 
 export default function Header () {
-
+  const location = useLocation()
+    const showGifOrSticker = location.pathname === '/'
   const dispatch = useAppDispatch()
   // const {isLogged, logout} = useUser()
   // const [match] = useRoute("/login");  // viene de wouter check documantation
@@ -21,14 +22,14 @@ export default function Header () {
  */
   const renderLoginButtons = ({isLogged = false}) => {
     return isLogged
-      ? <Link to='#'>
+      ? <Link to='#' className="header__btn__logout">
       Logout
       </Link>
       : <>
-        <Link to='/login'>
+        <Link to='/login' className="header__btn">
           Login
         </Link>
-        <Link to='/register'>
+        <Link to='/register' className="header__btn__register">
           Register
         </Link>
         </>
@@ -40,6 +41,20 @@ export default function Header () {
 
   return (
     <header>
+        {showGifOrSticker && <>
+         <ButtonComponent
+            onClick={() => dispatch(showGifs())}
+            id="home__btn__gif"
+          >
+            Gifs
+          </ButtonComponent>
+          <ButtonComponent
+            onClick={() => dispatch(showStickers())}
+            id="home__btn__sticker"
+          >
+            Stickers
+          </ButtonComponent>
+        </>}
       {content}
     </header>
   )

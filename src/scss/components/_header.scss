@@ -1,5 +1,53 @@
 @use '../abstracts/' as  *;
 
-header a{
-    @include linkDefaultStyle;
+header {
+    margin: 0 1rem;
+    margin-top: 0.5rem;
+    min-height: 2rem;
+    display: flex;
+    @include fontWeightBold;
+    & a{
+        @include linkDefaultStyle;
+    }
+}
+
+.header__btn{
+    margin-left: auto;
+    &__logout{
+        margin-left: auto;
+    }
+    &__register{
+        margin-left: 1rem;
+    }
+}
+
+#home__btn__gif{
+    margin-right: 1rem;    
+    @include fontWeightBold;
+}
+#home__btn__sticker{
+    @include fontWeightBold;
+}
+
+@include media-m{
+    .header__btn{
+        padding:1rem;
+        &__logout{
+            padding: 1rem;
+        }
+        &__register{
+            padding:1rem;
+            margin:0 2rem;
+        }
+    }
+    
+    #home__btn__gif{
+        padding: 1rem;
+        margin: 0 2rem;    
+        @include fontWeightBold;
+    }
+    #home__btn__sticker{
+        padding: 1rem;
+        @include fontWeightBold;
+    }
 }

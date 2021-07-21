@@ -12,13 +12,14 @@ const FSIZES = {
 interface BotonProps {
     children : ReactNode
     size?: "small" | "medium" | "large",
-    onClick?: React.MouseEventHandler
+    onClick?: React.MouseEventHandler,
+    id?: string
 }
-export default function ButtonComponent ({children, size="small", onClick=()=>{}}: BotonProps) : ReactElement{
+export default function ButtonComponent ({children, size="small", onClick=()=>{}, id=""}: BotonProps) : ReactElement{
     const style : React.CSSProperties = {
         padding:PSIZES[size],
         fontSize:FSIZES[size]
     }
 
-  return  <button className="boton" style={style} onClick={onClick}>{children}</button>
+  return  <button id={id} className="boton" style={style} onClick={onClick}>{children}</button>
 }

@@ -15,7 +15,9 @@ export default function App(): ReactElement {
   return (
     <div className="app">
       <Header />
-      <Link className="logo" to="/">LOGO</Link>
+      <div className="wrapper__logo">
+        <Link className="logo" to="/"></Link>
+      </div>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/searchgifs/:keyword/:rating?" component={SearchPage} />

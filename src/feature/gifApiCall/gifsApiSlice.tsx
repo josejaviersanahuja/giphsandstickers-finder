@@ -33,7 +33,7 @@ export const gifsApiSlice = createApi({
                     page={value:0}
                 }) {
                     localStorage.setItem('lastKeyword', keyword.value)
-                    console.log('entro en el fetch de gifs?');
+                    // console.log('entro en el fetch de gifs?');
                     return `/gifs/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page.value * limit}&rating=${rating.value}&lang=en`
                 },
                 keepUnusedDataFor:2
@@ -46,7 +46,7 @@ export const gifsApiSlice = createApi({
                     page={value:0}
                 }) {
                     localStorage.setItem('lastKeyword', keyword.value)
-                    console.log('entro en el fetch de stickers?');
+                   // console.log('entro en el fetch de stickers?');
                     return `/stickers/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page.value * limit}&rating=${rating.value}&lang=en`
                 },
                 keepUnusedDataFor:2

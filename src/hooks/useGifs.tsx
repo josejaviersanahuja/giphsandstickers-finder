@@ -48,7 +48,7 @@ export default function useGifs ({ keyword, rating =initialQuery.rating } : useG
     }
    }, [page, isFetching])
   
-   console.log(GorS.value, gifs );
+   // console.log(GorS.value, gifs );
    
   return {loading, gifs, isFetching}
 }

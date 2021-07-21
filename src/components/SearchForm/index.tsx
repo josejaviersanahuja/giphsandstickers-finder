@@ -12,7 +12,7 @@ export default function SearchForm() {
   return (
     <>
     <form onSubmit={handleSubmit}>
-        <ButtonComponent>search</ButtonComponent>
+        <ButtonComponent id="search__btn">search</ButtonComponent>
         <input
           placeholder="search for gifs..."
           onChange={handleChange}
