@@ -1,0 +1,46 @@
+@use '../abstracts/' as *;
+
+.detalle {
+    color: $secondColor;
+    display: flex;
+    flex-direction: column;
+    
+    &__title {
+        margin: auto;
+        text-align: center;
+    }
+    &__img {
+        margin:auto;
+        & .Gif{
+            width: 100vw;
+            &__link {
+                display:flex;
+                flex-direction: column;
+                width:100%;
+                & img, h4{
+                    margin:auto;
+                }
+                & img{
+                    width:100%;
+                    padding:0.5rem;
+                }
+            }
+        }
+    }
+}
+
+@include media-m {
+    .detalle {
+        &__img {
+            & .Gif{
+                width:768px;
+                &__link {
+                    width: 768px;
+                    & img{
+                        width: 750px;
+                    }
+                }
+            }
+        }
+    }    
+}

@@ -32,6 +32,8 @@ export const gifsApiSlice = createApi({
                     page={value:0}
                 }) {
                     localStorage.setItem('lastKeyword', keyword.value)
+                    // console.log('entro en el fetch de redux?');
+                    
                     return `/gifs/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page.value * limit}&rating=${rating.value}&lang=en`
                 }
             }),

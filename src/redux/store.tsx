@@ -15,7 +15,7 @@ const store = configureStore({
         loadingNextPage: loadingNextPageReducer,
         isNearScreen: isNearScreenReducer,
         [gifsApiSlice.reducerPath]: gifsApiSlice.reducer,
-        [trendsApiSlice.reducerPath]: trendsApiSlice.reducer
+        [trendsApiSlice.reducerPath]: trendsApiSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware()

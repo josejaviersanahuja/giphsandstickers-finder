@@ -8,9 +8,19 @@
     min-height: 110vh;
 }
 
-.Gif__link {
-    text-decoration: none;
-    color: white;
+.Gif {
+    position:relative;
+    padding:0.5rem;
+    &__link{
+        text-decoration: none;
+        color: white;
+        & h4 {
+            position: absolute;
+            top:0.5rem;
+            left:0.5rem;
+            opacity: 0.7;
+        }
+    }
 }
 
 .Gif:nth-child(6n+1) {
@@ -29,6 +39,7 @@
         & .Gif__link{
             text-decoration: none;
             @include brandStyle2;
+            
         }
     }
 }

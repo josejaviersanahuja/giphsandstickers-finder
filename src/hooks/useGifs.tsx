@@ -2,7 +2,7 @@
 import getGifs from '../services/getGifs'
 import GifsContext from '../context/GifsContext'
  */
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Giph, queryParameters, useFetchListOfGifsQuery } from "../feature/gifApiCall/gifsApiSlice";
 import { KeywordState } from "../feature/keyword/keywordSlice";
 import { RatingState } from "../feature/rating/ratingSlice";
@@ -28,8 +28,8 @@ export default function useGifs ({ keyword, rating =initialQuery.rating } : useG
 
   const page=useAppSelector((state) => state.page)
   const keywordToUse : KeywordState | undefined = keyword || keywordInCache() || initialQuery.keyword
-  const {data, isFetching} = useFetchListOfGifsQuery({keyword:keywordToUse, rating, page})
   const [gifs, setGifs] = useState<Giph[]>([])
+  const {data, isFetching} = useFetchListOfGifsQuery({keyword:keywordToUse, rating, page})
   
   const loading = gifs.length === 0 ? isFetching : false // esto es la caña aunque no lo sepas, se mejor el infinity scroll con esta ternaria
   const gifsTmp : Giph[] = fromRawGiphToPureGiph(data, isFetching)
@@ -44,10 +44,10 @@ export default function useGifs ({ keyword, rating =initialQuery.rating } : useG
     }
    }, [page, isFetching])
    
-  return {loading, gifs}
+  return {loading, gifs, isFetching}
 }
 
-export const fromRawGiphToPureGiph = (data: any, isFetching: boolean) :Giph[] => {
+export const fromRawGiphToPureGiph = (data: any, isFetching: boolean, callback?: Dispatch<SetStateAction<Giph>>) :Giph[] => {
   if (isFetching) {
     return []
   } else {
@@ -61,7 +61,7 @@ export const fromRawGiphToPureGiph = (data: any, isFetching: boolean) :Giph[] =>
   }
 }
 
-const keywordInCache = () : KeywordState | undefined => {
+export const keywordInCache = () : KeywordState | undefined => {
   if (localStorage.getItem('lastKeyword')) {
     let returnThis : KeywordState = {
       value: localStorage.getItem('lastKeyword') || ""

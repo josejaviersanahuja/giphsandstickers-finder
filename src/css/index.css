@@ -15,6 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/* 
+    MIXINS PARA RESPONSIVENESS
+*/
 .home {
   color: white;
 }
@@ -39,6 +42,84 @@ code {
 .home~a{
     @include linkDefaultStyle;
 } */
+.notFound {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.notFound__title {
+  margin: auto;
+  text-align: center;
+}
+.notFound__img {
+  margin: auto;
+}
+.notFound__img .Gif {
+  width: 100vw;
+}
+.notFound__img .Gif__link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.notFound__img .Gif__link img, .notFound__img .Gif__link h4 {
+  margin: auto;
+}
+.notFound__img .Gif__link img {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .notFound__img .Gif {
+    width: 768px;
+  }
+  .notFound__img .Gif__link {
+    width: 768px;
+  }
+  .notFound__img .Gif__link img {
+    width: 750px;
+  }
+}
+.detalle {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.detalle__title {
+  margin: auto;
+  text-align: center;
+}
+.detalle__img {
+  margin: auto;
+}
+.detalle__img .Gif {
+  width: 100vw;
+}
+.detalle__img .Gif__link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.detalle__img .Gif__link img, .detalle__img .Gif__link h4 {
+  margin: auto;
+}
+.detalle__img .Gif__link img {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .detalle__img .Gif {
+    width: 768px;
+  }
+  .detalle__img .Gif__link {
+    width: 768px;
+  }
+  .detalle__img .Gif__link img {
+    width: 750px;
+  }
+}
 .boton {
   isolation: isolate;
   position: relative;
@@ -146,6 +227,9 @@ code {
   background-color: #00ff99;
   color: black;
 }
+.trending__list > a:nth-child(6n+1) h4 {
+  background-color: #00ff99;
+}
 .trending__list > a:nth-child(6n+1):visited {
   color: black;
 }
@@ -153,6 +237,9 @@ code {
 .trending__list > a:nth-child(6n+2) {
   background-color: #00ccff;
   color: black;
+}
+.trending__list > a:nth-child(6n+2) h4 {
+  background-color: #00ccff;
 }
 .trending__list > a:nth-child(6n+2):visited {
   color: black;
@@ -162,6 +249,9 @@ code {
   background-color: #9933ff;
   color: white;
 }
+.trending__list > a:nth-child(6n+3) h4 {
+  background-color: #9933ff;
+}
 .trending__list > a:nth-child(6n+3):visited {
   color: white;
 }
@@ -169,6 +259,9 @@ code {
 .trending__list > a:nth-child(6n+4) {
   background-color: tomato;
   color: white;
+}
+.trending__list > a:nth-child(6n+4) h4 {
+  background-color: tomato;
 }
 .trending__list > a:nth-child(6n+4):visited {
   color: white;
@@ -178,6 +271,9 @@ code {
   background-color: #fff35c;
   color: black;
 }
+.trending__list > a:nth-child(6n+5) h4 {
+  background-color: #fff35c;
+}
 .trending__list > a:nth-child(6n+5):visited {
   color: black;
 }
@@ -185,6 +281,9 @@ code {
 .trending__list > a:nth-child(6n+6) {
   background-color: #8429de;
   color: white;
+}
+.trending__list > a:nth-child(6n+6) h4 {
+  background-color: #8429de;
 }
 .trending__list > a:nth-child(6n+6):visited {
   color: white;
@@ -210,14 +309,27 @@ header a:hover {
   min-height: 110vh;
 }
 
+.Gif {
+  position: relative;
+  padding: 0.5rem;
+}
 .Gif__link {
   text-decoration: none;
   color: white;
+}
+.Gif__link h4 {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  opacity: 0.7;
 }
 
 .Gif:nth-child(6n+1):hover {
   background-color: #00ff99;
   color: black;
+}
+.Gif:nth-child(6n+1):hover h4 {
+  background-color: #00ff99;
 }
 .Gif:nth-child(6n+1):hover:visited {
   color: black;
@@ -227,6 +339,9 @@ header a:hover {
   background-color: #00ff99;
   color: black;
 }
+.Gif:nth-child(6n+1):hover .Gif__link h4 {
+  background-color: #00ff99;
+}
 .Gif:nth-child(6n+1):hover .Gif__link:visited {
   color: black;
 }
@@ -234,6 +349,9 @@ header a:hover {
 .Gif:nth-child(6n+2):hover {
   background-color: #00ccff;
   color: black;
+}
+.Gif:nth-child(6n+2):hover h4 {
+  background-color: #00ccff;
 }
 .Gif:nth-child(6n+2):hover:visited {
   color: black;
@@ -243,6 +361,9 @@ header a:hover {
   background-color: #00ccff;
   color: black;
 }
+.Gif:nth-child(6n+2):hover .Gif__link h4 {
+  background-color: #00ccff;
+}
 .Gif:nth-child(6n+2):hover .Gif__link:visited {
   color: black;
 }
@@ -250,6 +371,9 @@ header a:hover {
 .Gif:nth-child(6n+3):hover {
   background-color: #9933ff;
   color: white;
+}
+.Gif:nth-child(6n+3):hover h4 {
+  background-color: #9933ff;
 }
 .Gif:nth-child(6n+3):hover:visited {
   color: white;
@@ -259,6 +383,9 @@ header a:hover {
   background-color: #9933ff;
   color: white;
 }
+.Gif:nth-child(6n+3):hover .Gif__link h4 {
+  background-color: #9933ff;
+}
 .Gif:nth-child(6n+3):hover .Gif__link:visited {
   color: white;
 }
@@ -266,6 +393,9 @@ header a:hover {
 .Gif:nth-child(6n+4):hover {
   background-color: tomato;
   color: white;
+}
+.Gif:nth-child(6n+4):hover h4 {
+  background-color: tomato;
 }
 .Gif:nth-child(6n+4):hover:visited {
   color: white;
@@ -275,6 +405,9 @@ header a:hover {
   background-color: tomato;
   color: white;
 }
+.Gif:nth-child(6n+4):hover .Gif__link h4 {
+  background-color: tomato;
+}
 .Gif:nth-child(6n+4):hover .Gif__link:visited {
   color: white;
 }
@@ -282,6 +415,9 @@ header a:hover {
 .Gif:nth-child(6n+5):hover {
   background-color: #fff35c;
   color: black;
+}
+.Gif:nth-child(6n+5):hover h4 {
+  background-color: #fff35c;
 }
 .Gif:nth-child(6n+5):hover:visited {
   color: black;
@@ -291,6 +427,9 @@ header a:hover {
   background-color: #fff35c;
   color: black;
 }
+.Gif:nth-child(6n+5):hover .Gif__link h4 {
+  background-color: #fff35c;
+}
 .Gif:nth-child(6n+5):hover .Gif__link:visited {
   color: black;
 }
@@ -299,6 +438,9 @@ header a:hover {
   background-color: #8429de;
   color: white;
 }
+.Gif:nth-child(6n+6):hover h4 {
+  background-color: #8429de;
+}
 .Gif:nth-child(6n+6):hover:visited {
   color: white;
 }
@@ -306,6 +448,9 @@ header a:hover {
   text-decoration: none;
   background-color: #8429de;
   color: white;
+}
+.Gif:nth-child(6n+6):hover .Gif__link h4 {
+  background-color: #8429de;
 }
 .Gif:nth-child(6n+6):hover .Gif__link:visited {
   color: white;
