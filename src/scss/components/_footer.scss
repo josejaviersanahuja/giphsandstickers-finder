@@ -1,0 +1,36 @@
+@use '../abstracts/' as *;
+
+footer {
+    color: $secondColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    margin-bottom: 0.5rem;
+    & span {
+        margin-right: 1rem;
+        font-size: 0.8rem;
+    }
+    & sub {
+        margin-right: 1rem;
+        font-size: 0.8rem;
+    }
+    & div{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@include media-m {
+    footer {
+        & img {
+            margin:0 1rem;
+        }
+        & div {
+            flex-direction: row;
+            & span, sub{
+                margin: auto;
+            }
+        }
+    }
+}

@@ -8,7 +8,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #101010;
+  background-color: #181818;
 }
 
 code {
@@ -532,6 +532,38 @@ select {
   margin-left: auto;
 }
 
+footer {
+  color: #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+footer span {
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+footer sub {
+  margin-right: 1rem;
+  font-size: 0.8rem;
+}
+footer div {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  footer img {
+    margin: 0 1rem;
+  }
+  footer div {
+    flex-direction: row;
+  }
+  footer div span, footer div sub {
+    margin: auto;
+  }
+}
 .wrapper__logo {
   min-width: 300px;
   min-height: 300px;

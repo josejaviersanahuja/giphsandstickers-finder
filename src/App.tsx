@@ -8,7 +8,7 @@ import Detail from './pages/Detail'
 
 import "./css/index.css";
 import Header from "./components/Header";
-import { useAppSelector } from "./redux/hooks";
+
 
 export default function App(): ReactElement {
  
@@ -27,6 +27,7 @@ export default function App(): ReactElement {
         <Route path="/register" component={Home} />
         <Route path="*" component={Page404} />
       </Switch>
+
     </div>
   );
 }

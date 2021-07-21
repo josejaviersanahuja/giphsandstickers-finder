@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import Gif from '../../components/Gif';
 import Spinner from '../../components/Spinner';
+import Footer from '../../components/Footer';
 import useSingleGif from '../../hooks/useSingleGif';
 import { useAppSelector } from '../../redux/hooks';
 
@@ -19,7 +20,7 @@ export default function index(): ReactElement {
             <div className="detalle__img">
                 {loadingFromApi? <Spinner/> : <Gif id={gif.id} title={gif.title} url={gif.url} />}
             </div>
-        
+            <Footer />
         </div>
     )
 }
