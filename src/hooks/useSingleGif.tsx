@@ -2,15 +2,17 @@ import { useState, useEffect, Dispatch, SetStateAction } from "react"
 import { useParams } from "react-router-dom"
 import { BASE_URL_GIPH, GIPHY_API_KEY } from "../feature/apiSettings"
 import { Giph, useFetchListOfGifsQuery } from "../feature/gifApiCall/gifsApiSlice"
+import { GorSState } from "../feature/gifORstickers/gifORstickerSlice"
 import { KeywordState } from "../feature/keyword/keywordSlice"
-import useGifs, { fromRawGiphToPureGiph, keywordInCache } from "./useGifs"
+import { useAppSelector } from "../redux/hooks"
+import { fromRawGiphToPureGiph, keywordInCache } from "./useGifs"
 
 interface custom {
     id: string
 }
 
 export default function useSingleGif() {
-    
+
     const {id} = useParams<custom>()
     // extraer del caché o
     const keywordToUse : KeywordState | undefined = keywordInCache() || initialKeyword
@@ -63,7 +65,11 @@ const defaultGif : Giph = {
     url:"https://media4.giphy.com/media/j9XoexYMmd7LdntEK4/giphy.gif?cid=bce465b9pqj5cbbfk2ka3pv4bxwsgg8k54xikpxuqcqy2419&rid=giphy.gif&ct=g"
 }
 
-const fetchSingleGif = (id:string, callbackGiph: Dispatch<SetStateAction<Giph>>, callbackLoading: Dispatch<SetStateAction<boolean>>) : Promise<void> => {
+const fetchSingleGif = (
+    id:string,
+    callbackGiph: Dispatch<SetStateAction<Giph>>,
+    callbackLoading: Dispatch<SetStateAction<boolean>>
+    ) : Promise<void> => {
     return fetch(`${BASE_URL_GIPH}/gifs/${id}?api_key=${GIPHY_API_KEY}`)
             .then(res => res.json())
             .then(response => {

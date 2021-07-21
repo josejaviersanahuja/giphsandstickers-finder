@@ -2,18 +2,18 @@ import { configureStore } from '@reduxjs/toolkit'
 import keywordReducer from '../feature/keyword/keywordSlice'
 import ratingReducer from '../feature/rating/ratingSlice'
 import pageReducer from '../feature/page/pageSlice'
-import loadingNextPageReducer from '../feature/loadingNextPage/loadingNextPageSlice'
 import { gifsApiSlice } from '../feature/gifApiCall/gifsApiSlice'
 import { trendsApiSlice } from '../feature/trends/trendsApiSlice'
 import isNearScreenReducer from '../feature/isNearScreen/isNearScreenSlice'
+import gifORstickerReducer from '../feature/gifORstickers/gifORstickerSlice'
 
 const store = configureStore({
     reducer: {
         keyword: keywordReducer,
         rating: ratingReducer,
         page: pageReducer,
-        loadingNextPage: loadingNextPageReducer,
         isNearScreen: isNearScreenReducer,
+        GorS: gifORstickerReducer,
         [gifsApiSlice.reducerPath]: gifsApiSlice.reducer,
         [trendsApiSlice.reducerPath]: trendsApiSlice.reducer,
     },

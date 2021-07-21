@@ -3,7 +3,7 @@ import getGifs from '../services/getGifs'
 import GifsContext from '../context/GifsContext'
  */
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Giph, queryParameters, useFetchListOfGifsQuery } from "../feature/gifApiCall/gifsApiSlice";
+import { Giph, queryParameters, useFetchListOfGifsQuery, useFetchListOfStickerQuery } from "../feature/gifApiCall/gifsApiSlice";
 import { KeywordState } from "../feature/keyword/keywordSlice";
 import { RatingState } from "../feature/rating/ratingSlice";
 import { useAppSelector } from "../redux/hooks";
@@ -25,13 +25,17 @@ interface useGifsProps {
 }
 
 export default function useGifs ({ keyword, rating =initialQuery.rating } : useGifsProps ) {
+  const GorS = useAppSelector(state => state.GorS)
 
   const page=useAppSelector((state) => state.page)
   const keywordToUse : KeywordState | undefined = keyword || keywordInCache() || initialQuery.keyword
   const [gifs, setGifs] = useState<Giph[]>([])
-  const {data, isFetching} = useFetchListOfGifsQuery({keyword:keywordToUse, rating, page})
-  
-  const loading = gifs.length === 0 ? isFetching : false // esto es la caña aunque no lo sepas, se mejor el infinity scroll con esta ternaria
+  const {data, isFetching} = //ternaria condicional
+    GorS.value === 'gif' 
+    ? useFetchListOfGifsQuery({keyword:keywordToUse, rating, page})
+    : useFetchListOfStickerQuery({keyword:keywordToUse, rating, page})
+    
+    const loading = gifs.length === 0 ? isFetching : false // esto es la caña aunque no lo sepas, se mejor el infinity scroll con esta ternaria
   const gifsTmp : Giph[] = fromRawGiphToPureGiph(data, isFetching)
   
   useEffect(() => {
@@ -43,6 +47,8 @@ export default function useGifs ({ keyword, rating =initialQuery.rating } : useG
       setGifs([...gifs].concat(gifsTmp))
     }
    }, [page, isFetching])
+  
+   console.log(GorS.value, gifs );
    
   return {loading, gifs, isFetching}
 }

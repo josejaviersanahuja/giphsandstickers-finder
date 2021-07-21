@@ -5,7 +5,8 @@ import { setRating } from "../../feature/rating/ratingSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 export default function useSearchForm() {
-const {keyword, rating} = useAppSelector((state) => state);
+  const GorS = useAppSelector(state => state.GorS)
+  const {keyword, rating} = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
   const history = useHistory();
   // form para hacer las búsquedas de giphs y stickers
@@ -16,7 +17,8 @@ const {keyword, rating} = useAppSelector((state) => state);
     // reiniciamos el page state por si acaso
     dispatch(resetPageState())
     //navegar a otra ruta
-    keyword.value !== "" && history.push(`/search/${keyword.value}/${rating.value}`);
+    keyword.value !== "" && history.push(`/search${GorS.value}s/${keyword.value}/${rating.value}`);
+    dispatch(setKeyword(""))
   };
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (

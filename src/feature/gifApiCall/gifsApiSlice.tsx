@@ -3,6 +3,7 @@ import { KeywordState } from '../keyword/keywordSlice'
 import { RatingState } from '../rating/ratingSlice'
 import {BASE_URL_GIPH, GIPHY_API_KEY} from '../apiSettings'
 import { PageState } from '../page/pageSlice'
+import { GorSState } from '../gifORstickers/gifORstickerSlice'
 
 export interface Giph {
     id: string,
@@ -32,13 +33,26 @@ export const gifsApiSlice = createApi({
                     page={value:0}
                 }) {
                     localStorage.setItem('lastKeyword', keyword.value)
-                    // console.log('entro en el fetch de redux?');
-                    
+                    console.log('entro en el fetch de gifs?');
                     return `/gifs/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page.value * limit}&rating=${rating.value}&lang=en`
-                }
+                },
+                keepUnusedDataFor:2
             }),
+            fetchListOfSticker: builders.query<any, queryParameters >({
+                query({
+                    keyword = {value:"lion guard"},
+                    rating = {value:"g"},
+                    limit = 10,
+                    page={value:0}
+                }) {
+                    localStorage.setItem('lastKeyword', keyword.value)
+                    console.log('entro en el fetch de stickers?');
+                    return `/stickers/search?api_key=${GIPHY_API_KEY}&q=${keyword.value}&limit=${limit}&offset=${page.value * limit}&rating=${rating.value}&lang=en`
+                },
+                keepUnusedDataFor:2
+            })
         }
     }
 })
 
-export const { useFetchListOfGifsQuery } = gifsApiSlice
+export const { useFetchListOfGifsQuery, useFetchListOfStickerQuery } = gifsApiSlice
