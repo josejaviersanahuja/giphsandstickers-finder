@@ -26,12 +26,12 @@ export default function Header () {
       Logout
       </Link>
       : <>
-        <Link to='/login' className="header__btn">
+{/*         <Link to='/login' className="header__btn">
           Login
         </Link>
         <Link to='/register' className="header__btn__register">
           Register
-        </Link>
+        </Link> */}
         </>
   }
 

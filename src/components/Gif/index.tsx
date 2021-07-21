@@ -6,9 +6,9 @@ import { Giph } from '../../feature/gifApiCall/gifsApiSlice'
 export default function Gif ({ title, id, url } : Giph) {
   return (
     <div className="Gif">
-      <div className="Gif__buttons">
-        {/* <Fav id={id}></Fav> */}
-      </div>
+{/*       <div className="Gif__buttons">
+         <Fav id={id}></Fav>
+      </div> */}
       <Link to={`/giforsticker/${id}`} className='Gif__link'>
         <h4>{title}</h4>
         <img loading='lazy' alt={title} src={url} />

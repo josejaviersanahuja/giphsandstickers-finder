@@ -96,16 +96,15 @@ code {
 }
 .detalle__img {
   margin: auto;
-  background: linear-gradient(to right, #00ff99, #00ccff, #9933ff, tomato, #fff35c, #8429de);
 }
 .detalle__img .Gif {
-  width: 100vw;
+  width: 100%;
+  padding: 0;
 }
 .detalle__img .Gif__link {
   display: flex;
   flex-direction: column;
   width: 100%;
-  position: relative;
 }
 .detalle__img .Gif__link img, .detalle__img .Gif__link h4 {
   margin: auto;
@@ -118,12 +117,13 @@ code {
 @media screen and (min-width: 768px) {
   .detalle__img .Gif {
     width: 768px;
+    padding: 0;
   }
   .detalle__img .Gif__link {
     width: 768px;
   }
   .detalle__img .Gif__link img {
-    width: 750px;
+    width: 768px;
   }
 }
 .boton {

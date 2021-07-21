@@ -11,20 +11,23 @@
     }
     &__img {
         margin:auto;
-        background: linear-gradient(to right, $brandcolor_1, $brandcolor_2, $brandcolor_3, $brandcolor_4, $brandcolor_5, $brandcolor_6);
         & .Gif{
-            width: 100vw;
+            width: 100%;
+            
+            padding: 0;
             &__link {
                 display:flex;
                 flex-direction: column;
                 width:100%;
-                position: relative;
+                
                 & img, h4{
                     margin:auto;
+                    
                 }
                 & img{
                     width:100%;
                     padding:0.5rem;
+                    
                 }
             }
         }
@@ -36,10 +39,11 @@
         &__img {
             & .Gif{
                 width:768px;
+                padding:0;
                 &__link {
                     width: 768px;
                     & img{
-                        width: 750px;
+                        width: 768px;
                     }
                 }
             }
